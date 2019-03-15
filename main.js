@@ -1,6 +1,5 @@
 window.onload = function(){
-	var index=0;//图片索引
-	
+	var index=0;//图片索引	
 	var allA = document.getElementsByTagName("a");
 	//第一个按钮默认是绿色
 	allA[0].style.backgroundColor = "aquamarine";
@@ -14,30 +13,26 @@ window.onload = function(){
 			for(var j=0; j<allA.length; j++){
 				allA[j].style.backgroundColor = "#FF69B4"
 				allA[this.num].style.backgroundColor ="aquamarine";
-			//给图片切换加上滑动效果
-			var distance= -300*this.num;
-			clearInterval(timer);
-			index = this.num;			
-			var timer = setInterval(function(){
-				//判断向左滑还是向右滑
-				if(sondiv.offsetLeft>distance){
-					//左滑
-					sondiv.style.left =sondiv.offsetLeft -10+"px";
-					
-				}
-				if(sondiv.offsetLeft<distance){
-					//右滑
-					sondiv.style.left =sondiv.offsetLeft +10+"px";
-				}
-				//到达目标位置
-				if(sondiv.offsetLeft==distance){
-					autoChange();
-					
-					clearInterval(timer);
-
-				}
-				
-			},20)
+				//给图片切换加上滑动效果
+				var distance= -300*this.num;
+				clearInterval(timer);
+				index = this.num;			
+				var timer = setInterval(function(){
+					//判断向左滑还是向右滑
+					if(sondiv.offsetLeft>distance){
+						//左滑
+						sondiv.style.left =sondiv.offsetLeft -10+"px";						
+					}
+					if(sondiv.offsetLeft<distance){
+						//右滑
+						sondiv.style.left =sondiv.offsetLeft +10+"px";
+					}
+					//到达目标位置
+					if(sondiv.offsetLeft==distance){
+						autoChange();						
+						clearInterval(timer);	
+					}					
+				},20)
 			}
 		}	
 	}
@@ -68,8 +63,7 @@ window.onload = function(){
 	function setA(){
 		if(index>=5){
 			index=0;
-			sondiv.style.left= 0+"px";
-			
+			sondiv.style.left= 0+"px";			
 		}
 		for(var j=0; j<allA.length; j++){
 			allA[j].style.backgroundColor = "#FF69B4"
